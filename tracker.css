@@ -1,25 +1,28 @@
+body {
+	font-size: 1.5rem;
+}
 h1 {
-	font-size: 40px;
+	font-size: 4rem;
 	text-align: center;
-	margin-top:80px;
-	margin-bottom: 80px;
+	margin-top:8rem;
+	margin-bottom: 8rem;
 }
 
 span {
-	font-size: 80px;
+	font-size: 8rem;
 }
 
 .iphone-wrapper {
-	width: 400px;
-	height: 650px;
-	border: 1px solid black;
+	width: 40rem;
+	height: 65rem;
+	border: .1rem solid black;
 	color: #d2d6d6;
 }
 
 .navigate {
 	display: flex;
 	justify-content: space-between;
-	margin: 15px;
+	margin: 1.5rem;
 }
 
 
@@ -27,12 +30,12 @@ span {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 15 55 0 55;
+	margin: 1.5rem 5.5rem 0 5.5rem;
 }
 
 .button-row {
 	display: flex;
 	justify-content: center;
-	margin-top: 100px;
+	margin-top: 10rem;
 }
 
