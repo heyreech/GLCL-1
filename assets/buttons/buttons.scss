@@ -74,38 +74,36 @@
     }
 
     &.inactive {
-      background-color: $pure-white;
-      border: 3px solid $pure-white;
+      background-color: $inactive-button;
+      border: 3px solid $inactive-button;
       margin-top: 20px;
         p {
-          color: $alto-grey;
+          color: $inactive-text;
         }
-
     }
 
     &.normal {
       background-color: $secondary-color-gold;
-
     }
 
     &.hover {
-      background-color: $golden-sand;
-      border: 3px solid $golden-sand;
+      background-color: $hover-button;
+      border: 3px solid $hover-button;
         p {
           color: $primary-color-slate;
         }
     }
 
     &.hoverLight {
-      background-color: $shadow-gold;
+      background-color: $hover-light-button;
         p {
           color: $secondary-color-gold;
         }
     }
 
     &.click {
-      background-color: $dark-gold;
-      border: 3px solid $dark-gold;
+      background-color: $click-button;
+      border: 3px solid $click-button;
     }
 
     &.dark {
@@ -113,7 +111,5 @@
         color: $secondary-color-gold;
       }
     }
-
   }
-
 }

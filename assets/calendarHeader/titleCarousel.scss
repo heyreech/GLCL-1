@@ -1,0 +1,13 @@
+@import '../_main.scss';
+
+.calendar-header {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    background-color: #87898C;
+    color: $inactive-button;
+}
+
+.arrow {
+    cursor: pointer;
+}

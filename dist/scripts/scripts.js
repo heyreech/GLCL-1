@@ -29,7 +29,6 @@ var calendar = function calendar() {
     var firstDay = function firstDay(year, month) {
         return new Date(year, month - 1, 1).getDay();
     };
-
     var daysOfTheWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
     var calendarHead = document.getElementById('calendar-head');
 
@@ -45,15 +44,24 @@ var calendar = function calendar() {
     var calendarBody = document.getElementById('calendar-body');
     var populateCalendarBody = function populateCalendarBody() {
         var daysInRow = 7;
-        var totalRows = 5;
-        var totalDays = daysInRow * totalRows;
+        var totalRows = 6;
+        // let totalDays = daysInRow * totalRows;
         var currentRows = 0;
+        var currentDaysInMonth = lastDay(2018, 9);
+        var firstDayOfMonth = firstDay(2018, 9);
+        var currentDayOfMonthIndex = 1;
+        var currentCalendarDayIndex = 0;
 
         while (currentRows < totalRows) {
             var calendarRow = document.createElement('div');
-            for (var i = 0; i < daysOfTheWeek.length; i++) {
+            for (var i = 0; i < daysInRow; i++) {
+                console.log('within for loop');
                 var day = document.createElement('p');
-                day.innerHTML = i;
+                if (currentCalendarDayIndex >= firstDayOfMonth && currentDayOfMonthIndex <= currentDaysInMonth) {
+                    day.innerHTML = currentDayOfMonthIndex;
+                    currentDayOfMonthIndex++;
+                }
+                currentCalendarDayIndex++;
                 calendarRow.appendChild(day);
             }
             calendarBody.appendChild(calendarRow).className = "calendar-row";
@@ -64,6 +72,51 @@ var calendar = function calendar() {
 };
 
 document.addEventListener('DOMContentLoaded', calendar, false);
+'use strict';
+
+var calendarHeader = function calendarHeader() {
+    // Create Header Elements
+    var titleCarousel = document.getElementById('title-carousel');
+    var pLeftArrow = document.createElement('p');
+    pLeftArrow.classList.add("arrow", "fas", "fa-chevron-left");
+    pLeftArrow.id = "left-arrow";
+    titleCarousel.appendChild(pLeftArrow);
+
+    var pTitle = document.createElement('p');
+    pTitle.id = "title";
+    titleCarousel.appendChild(pTitle);
+
+    var pRightArrow = document.createElement('p');
+    pRightArrow.classList.add("arrow", "fas", "fa-chevron-right");
+    pRightArrow.id = "right-arrow";
+    titleCarousel.appendChild(pRightArrow);
+
+    console.log(titleCarousel);
+    // Set Title Month
+    var title = document.getElementById('title');
+    var titleSetter = function titleSetter(newMonth) {
+        title.innerHTML = newMonth;
+    };
+    titleSetter("September");
+    // Navigate through months with left/right arrows
+    var titleArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var leftArrow = document.getElementById('left-arrow');
+    var rightArrow = document.getElementById('right-arrow');
+    var titleIndex = 8;
+    leftArrow.addEventListener('click', function () {
+        if (titleIndex > 0) {
+            titleIndex--;
+            titleSetter(titleArr[titleIndex]);
+        }
+    });
+    rightArrow.addEventListener('click', function () {
+        if (titleIndex < titleArr.length - 1) {
+            titleIndex++;
+            titleSetter(titleArr[titleIndex]);
+        }
+    });
+};
+document.addEventListener('DOMContentLoaded', calendarHeader, false);
 'use strict';
 
 var list = [];
